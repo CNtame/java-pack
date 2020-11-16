@@ -1,6 +1,7 @@
 package com.pack.java.io;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author liu
@@ -8,7 +9,7 @@ import java.io.*;
  * @description
  * @createDate 2020/11/14
  */
-public class FileAction {
+public class FileActionRead {
 
 
     public static void main(String[] args) {
@@ -21,16 +22,21 @@ public class FileAction {
          */
         System.out.println(charReadFile());
 
-
         /**
          * 字节流读取纯英文数字
          */
         System.out.println(byteRead1());
+
         /*
         字节流读取汉英交杂
         乱码
          */
         System.out.println(byteRead2());
+
+        /**
+         * 缓冲流读取数据
+         */
+        System.out.println(bufferReader());
 
     }
 
@@ -78,7 +84,8 @@ public class FileAction {
         try {
             if (file.exists()) {
                 stream = new FileInputStream(file);
-                reader = new InputStreamReader(stream);
+                //将字节流转换为字符流，并且制定编码为UTF-8
+                reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
                 int data = 0;
                 while ((data = reader.read()) != -1) {
                     res.append((char) data);
@@ -131,7 +138,8 @@ public class FileAction {
     }
 
     /**
-     *
+     * 字节流读取 只适合英语和数组
+     * 汉字中文出错
      */
     public static String byteRead2() {
         File file = new File("/Users/liuhaibo/Documents/data/word2.txt");
@@ -152,4 +160,38 @@ public class FileAction {
             return "";
         }
     }
+
+    /**
+     * bufferReader缓冲字字符流
+     * 可以通过BufferReader来缓存数据，快速获取网络数据
+     */
+    public static String bufferReader() {
+        File file = new File("/Users/liuhaibo/Documents/data/word2.txt");
+        FileInputStream stream=null;
+        InputStreamReader reader=null;
+        BufferedReader buffer=null;
+        StringBuilder res = new StringBuilder();
+        try {
+            if (file.exists()) {
+                stream = new FileInputStream(file);
+                reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
+                buffer = new BufferedReader(reader);
+                int data = 0;
+
+                while ((data = buffer.read()) != -1) {
+                    res.append((char) data);
+                }
+            }
+            return res.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
+
+    }
+
+    /**
+     * 字节流 行读取
+     */
+
 }
