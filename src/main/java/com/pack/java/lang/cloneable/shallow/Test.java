@@ -1,4 +1,7 @@
-package com.pack.java.lang.cloneable;
+package com.pack.java.lang.cloneable.shallow;
+
+import com.pack.java.lang.cloneable.shallow.Role;
+import com.pack.java.lang.cloneable.shallow.User;
 
 /**
  * @author liu

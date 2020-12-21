@@ -6,5 +6,9 @@ package com.pack.java.enumJava;
  * @description
  * @createDate 2020/11/19
  */
-public class test {
+public class Test {
+
+    public static void main(String[] args) {
+        System.out.println(EnumExample.APPLY_BORROW.getIndex());
+    }
 }

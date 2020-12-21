@@ -1,4 +1,4 @@
-package com.pack.java.lang.cloneable;
+package com.pack.java.lang.cloneable.shallow;
 
 import lombok.Data;
 

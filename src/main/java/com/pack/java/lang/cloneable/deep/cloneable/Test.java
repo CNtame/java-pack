@@ -1,4 +1,4 @@
-package com.pack.java.lang.cloneable.deep;
+package com.pack.java.lang.cloneable.deep.cloneable;
 
 /**
  * @author liu
