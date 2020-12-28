@@ -39,7 +39,5 @@ public class Array {
         int[][] data1 = new int[][]{{1, 2}, {2, 3}, {5, 3}, {9, 10}};
         Arrays.sort(data1, Comparator.comparingInt(a -> a[0]));
         Arrays.stream(data1).map(Arrays::toString).forEach(System.out::println);
-
-
     }
 }
