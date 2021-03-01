@@ -1,6 +1,8 @@
 package com.pack.java.lambda;
 
+import java.util.*;
 import java.util.function.*;
+import java.util.stream.Collectors;
 
 /**
  * @author liu
@@ -69,5 +71,24 @@ public class test {
         Integer res = binaryOperator.apply(1, 3);
         System.out.println(res);
 
+
+        Queue<Integer> ddd = new LinkedList<>();
+        Stack<Integer> dd = new Stack<>();
+        Deque<Integer> dd2 = new LinkedList<>();
+
+
+
+        /*
+        assert JVM默认关闭断言指令
+        如果结果为false，则断言失败，抛出AssertionError。不执行下面程序
+         */
+        assert test1() != 1;
+        System.out.println( "ttt");
+
+    }
+
+    private static int test1() {
+        System.out.println("test");
+        return 1;
     }
 }

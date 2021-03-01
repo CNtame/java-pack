@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @description
  * @createDate 2021/2/22
  */
-public class paranms {
+public class MethodPreference {
 
 
     public static void main(String[] args) {
@@ -19,10 +19,10 @@ public class paranms {
         System.out.println(i);
 
         /*
+        方法可以改变对象的参数类型，但是
         引用类型：数组、对象接口
         引用类型作为方法的参数，可以改变参数的的大小
          */
-
         int[] a = new int[]{1, 2, 3, 4};
         arrayParams(a);
         System.out.println(Arrays.toString(a));
@@ -33,8 +33,16 @@ public class paranms {
 
 
         TestObject object = new TestObject("test", 51);
-        doubleMoney(object);
+        classParam(object);
         System.out.println(object.getMoney());
+
+        /*
+         * 方法无法改变对象整体引用
+         * 比如对象交换，重新替换一个新对象
+         */
+        TestObject object2 = new TestObject("test", 51);
+        changeClass(object2);
+        System.out.println(object2.toString());
 
     }
 
@@ -49,7 +57,9 @@ public class paranms {
     }
 
     /**
-     *
+     * 方法参数：引用类型数组，数组元是基础类型
+     * 增强型for循环失败
+     * 增强型for循环中重新定义一个基础类型，值是原数组的值，但已经不属于数组本身了
      * @param nums
      */
     private static void arrayParams(int[] nums) {
@@ -59,6 +69,8 @@ public class paranms {
     }
 
     /**
+     * 方法参数：引用型类型-数组
+     * for普通遍历
      * 可以
      *
      * @param nums
@@ -71,10 +83,31 @@ public class paranms {
     }
 
     /**
-     * 对象引用
+     * 方法参数：引用型类型-类
+     *
      */
-    private static void doubleMoney(TestObject object) {
+    private static void classParam(TestObject object) {
         object.raiseMoney(10);
 
+    }
+
+    /**
+     * 方法参数：对象类
+     * 修改对象参数中的一些实例字段
+     */
+    private static void classParam2(TestObject object) {
+        object.setMoney(200);
+
+    }
+
+    /**
+     * 方法参数：对象
+     * 对象参数不能换成另外一个新对象
+     * 换句话说：如果你要操控整体对象，不可能的。内存中的地址是不会发生变化的
+     */
+    private static void changeClass(TestObject object) {
+
+        //新建的副本对象
+        object = new TestObject("111", 222);
     }
 }

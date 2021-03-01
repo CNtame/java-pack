@@ -15,6 +15,13 @@ public class Hash {
     public static void main(String[] args) {
 
 
+        /**
+         * String
+         *
+         */
+        System.out.println("11".hashCode());
+
+
         /*
         hashMap
          */

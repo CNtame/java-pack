@@ -86,7 +86,7 @@ public class Stream1 {
         及早求值
          */
         Integer countAges = users.stream()
-                .map(s -> s.getAge()).reduce(0, (acc, x) -> acc + x);
+                .map(User::getAge).reduce(0, (acc, x) -> acc + x);
         System.out.println("人的年龄总数：" + countAges);
 
 

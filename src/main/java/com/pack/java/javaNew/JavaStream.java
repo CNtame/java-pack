@@ -1,9 +1,6 @@
 package com.pack.java.javaNew;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author liu
@@ -25,6 +22,17 @@ public class JavaStream {
         升序
          */
         Arrays.sort(data);
+
+        int[][] data2 = {{1, 2}, {2, 3}, {2, 4}, {2, 1}};
+        Arrays.sort(data2, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if(o1[0]==o2[0]) return o1[1]-o2[1];
+                else return o1[0]-o2[0];
+            }
+        });
+        System.out.println(Arrays.deepToString(data2));
+
         /*
         对于基本类型的数组排序，是无法重写Comparator来排序的，这是因为基本类型不是Object
          */
@@ -35,6 +43,12 @@ public class JavaStream {
         //        return 0;
         //    }
         //});
+        java.util.PriorityQueue<int[]> datas = new PriorityQueue<>(new Comparator<int[]>(){
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1!=o2? o2[0]-o1[0]:o2[1]-o1[1];
+            }
+        });
 
 
 
@@ -64,6 +78,10 @@ public class JavaStream {
         //新建比较类
         Arrays.sort(data3,new Comparators<>());
         System.out.println(Arrays.toString(data3));
+
+
+
+
 
 
     }
