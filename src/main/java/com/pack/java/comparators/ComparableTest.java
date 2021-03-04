@@ -82,5 +82,14 @@ public class ComparableTest {
         });
         System.out.println("List接口中Comparator方法："+data);
 
+
+        /*
+         * 使用Comparators里面的静态方法
+         */
+        User user = new User("user1", 10);
+        User user1 = new User("user2", 12);
+        List<User> users = Arrays.asList(user, user1);
+        users.sort(Comparator.comparing(User::getAge).thenComparing(User::getUserName));
+        System.out.println(users);
     }
 }
