@@ -1,5 +1,7 @@
 package com.pack.java.comparators;
 
+import com.pack.java.dataStructure.Collection;
+
 import java.util.*;
 
 /**
@@ -54,6 +56,16 @@ public class ComparableTest {
          */
         Collections.sort(data);
         System.out.println("collections中sort方法"+data);
+
+        Collections.sort(data,new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if(o1>o2) return -1;
+                if (o1.equals(o2)) return 0;
+                else return 1;
+            }
+        });
+        System.out.println("Collection中sort自定义规则排序："+data);
 
         /*
          * 使用List接口中默认方法进行排序

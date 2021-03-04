@@ -21,4 +21,8 @@ public class User {
         this.userName = userName;
         this.age = age;
     }
+
+    public void test1() {
+        System.out.println(age);
+    }
 }

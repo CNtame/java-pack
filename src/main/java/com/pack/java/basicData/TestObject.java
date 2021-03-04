@@ -12,6 +12,7 @@ public class TestObject {
 
     private int money;
 
+
     public String getUserName() {
         return userName;
     }

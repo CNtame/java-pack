@@ -10,9 +10,16 @@ import java.util.stream.Collectors;
  * @description
  * @createDate 2020/12/29
  */
-public class test {
+public class FunctionTest {
 
     public static void main(String[] args) {
+
+        /*
+        Runnable
+         */
+        Runnable runnable = System.out::println;
+        runnable.run();
+        Runnable runnable1 = () -> System.out.println("runnable函数式接口");
 
         /*
         Predicate    test
@@ -24,6 +31,12 @@ public class test {
         System.out.println("test的年龄高于15吗？" + predicate.test(user.getAge()));
 
         /*
+        BiPredicate
+         */
+        BiPredicate<Integer, Integer> biPredicate = (a, b) -> a > 10 && b > 10;
+        System.out.println("BiPredicate函数式接口：" + biPredicate.test(5, 11));
+
+        /*
         Consumer accept
         获取所需数据后打印
          */
@@ -31,6 +44,14 @@ public class test {
             System.out.println(x.getUserName() + "的年龄：" + x.getAge());
         };
         consumer.accept(user);
+
+        /*
+        BiConsumer
+         */
+        BiConsumer<String, String> biConsumer = (a, b) -> {
+            System.out.println(a + b);
+        };
+        biConsumer.accept("BiConsumer", "两个参数");
 
 
         /*
@@ -42,13 +63,17 @@ public class test {
         System.out.println(function.apply(user));
 
         /*
+        BiFunction
+         */
+        BiFunction<String, String, String> biFunction = (a, b) -> a + b;
+        biFunction.apply("BiFunction函数式接口：" , "接收两个参数，返回一个参数");
+
+        /*
          * Supplier get
          * 固定数据
-         * 输出
+         * 输出<T>
          */
-        Supplier<String> supplier = () -> {
-            return "测试数据";
-        };
+        Supplier<String> supplier = () -> "测试数据";
         System.out.println(supplier.get());
 
         /*
@@ -70,11 +95,6 @@ public class test {
         BinaryOperator<Integer> binaryOperator = (x, y) -> x * y;
         Integer res = binaryOperator.apply(1, 3);
         System.out.println(res);
-
-
-        Queue<Integer> ddd = new LinkedList<>();
-        Stack<Integer> dd = new Stack<>();
-        Deque<Integer> dd2 = new LinkedList<>();
 
 
 
