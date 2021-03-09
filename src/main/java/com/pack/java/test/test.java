@@ -14,6 +14,8 @@ public class test {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         Deque<Integer> data = new LinkedList<>();
+        StringBuilder d = new StringBuilder();
+        List<Integer> ddd = new ArrayList<>();
         int[][] datas = new int[3][5];
         System.out.println(datas.length);
 
