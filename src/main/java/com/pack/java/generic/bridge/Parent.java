@@ -6,7 +6,7 @@ package com.pack.java.generic.bridge;
  * @description
  * @createDate 2021/3/9
  */
-public class Parent<T extends Comparable> {
+public class Parent<T> {
 
     private T param1;
 
