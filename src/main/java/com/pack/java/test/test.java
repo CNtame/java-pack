@@ -23,5 +23,9 @@ public class test {
         char[] d = dd.toCharArray();
         System.out.println(Character.getNumericValue(data));
         System.out.println((int) Math.pow(2, 3));
+        System.out.println('+');
+        System.out.println('-');
+        System.out.println('*');
+        System.out.println('/');
     }
 }
