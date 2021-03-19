@@ -1,9 +1,13 @@
 package com.pack.java.transform;
 
+import com.pack.java.dataStructure.Collection;
+import com.pack.java.io.Stream;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author liu
@@ -49,7 +53,31 @@ public class ListAndArray {
          * array 转list
          */
 
+        /*
+        data.remove(0) 这样会出错
+         */
+        List<Integer> data1 = Arrays.asList(1, 2, 3);
+        //data.remove(0);
 
+
+        List<Integer> data2 = new ArrayList<>(data1);
+
+        /////////////////////////
+        //因为这里是一个向下转型 会出错
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        //String Integer[]=(String [])data2.toArray();
+
+        /////////////////////////
+        Integer[] arrayData = data2.toArray(new Integer[data2.size()]);
+        System.out.println(Arrays.toString(arrayData));
+
+        ////////////////////////////
+        /*
+         * 为什么要mapToInt
+         * 因为data2.stream 后变成Object数组
+         */
+        int[] arrayData2 = data2.stream().mapToInt(Integer::valueOf).toArray();
+        System.out.println(Arrays.toString(arrayData2));
 
 
     }
