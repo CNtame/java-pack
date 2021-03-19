@@ -13,10 +13,10 @@ public class ByThread extends Thread{
         System.out.println("Current thread name: "
                 + Thread.currentThread().getName());
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(i);
         }
-        System.out.println("run()被调用");
+        System.out.println("ByThread run()被调用");
 
     }
 }

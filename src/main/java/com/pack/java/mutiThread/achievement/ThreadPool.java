@@ -13,6 +13,7 @@ public class ThreadPool implements Runnable{
 
     @Override
     public void run() {
+        System.out.println("线程池：");
         for (int i = 0; i < num; i++) {
             System.out.println("线程" + Thread.currentThread() + "  " + i);
         }

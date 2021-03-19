@@ -1,10 +1,14 @@
 package com.pack.java.mutiThread;
 
 import com.pack.java.mutiThread.achievement.ByThread;
+import com.pack.java.mutiThread.achievement.MyCallable;
+import com.pack.java.mutiThread.achievement.MyRunnable;
 import com.pack.java.mutiThread.achievement.ThreadPool;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 
 /**
  * @author liu
@@ -14,7 +18,7 @@ import java.util.concurrent.Executors;
  */
 public class test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         /*
         start区别 与run区别
@@ -34,6 +38,25 @@ public class test {
          */
         ByThread thread = new ByThread();
         thread.run();
+
+
+        /*
+         * runnable 创建线程
+         */
+        MyRunnable myRunnable = new MyRunnable();
+        Thread thread1 = new Thread(myRunnable);
+        thread1.start();
+
+
+        /*
+         * callable 创建线程 覆写方法 会有返回值
+         * FutureTask 接收返回值
+         */
+        MyCallable myCallable = new MyCallable();
+        FutureTask<String> futureTask = new FutureTask<>(myCallable);
+        Thread thread3 = new Thread(futureTask);
+        thread3.start();
+        System.out.println(futureTask.get());
 
 
         /*
